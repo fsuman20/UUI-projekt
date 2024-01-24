@@ -1,5 +1,5 @@
 # Procesiranje prirodnog jezika za razumijevanje povratnih informacija klijenata u ugostiteljskoj industriji
-## Projekt iz uvod u umjetnu inteligenciju
+## Projekt iz kolegija uvod u umjetnu inteligenciju
 
 Ovaj repozitorij sadrži izvorni kod i dokumentaciju za seminarski rad iz kolegija Uvod u umjetnu inteligenciju na Fakultetu organizacije i informatike.
 
