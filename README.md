@@ -15,7 +15,7 @@ Za pokretanje projekta potrebno je imati instaliran Python (poželjno najnoviji 
 
 Za pokretanje modela, potrebno je pokrenuti program `model_review.py`. Program će učitati podatke, očistiti ih, vektorizirati ih, balansirati ih, podijeliti ih na trening i test set, optimizirati parametre modela, trenirati model, evaluirati model, vizualizirati podatke i spremiti model i vektorizator u datoteke.
 
-Za pokretanje aplikacije, potrebno je pokrenuti program ‘RecenzijeAplikacija.py’. Program će učitati model i vektorizator iz datoteka, te omogućiti korisniku da odabere opciju: 
+Za pokretanje aplikacije, potrebno je pokrenuti program `RecenzijeAplikacija.py`. Program će učitati model i vektorizator iz datoteka, te omogućiti korisniku da odabere opciju: 
 
 1) Napravi novu recenziju
 2) Prikaži podatke
