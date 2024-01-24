@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.model_selection import train_test_split, cross_val_score, GridSearchCV
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics import accuracy_score, confusion_matrix
+from sklearn.metrics import accuracy_score, confusion_matrix, ConfusionMatrixDisplay
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from imblearn.over_sampling import RandomOverSampler
@@ -32,7 +32,7 @@ plt.show()
 
 # Tokenizacija i vektorizacija
 zaustavne_rijeci = set(stopwords.words('english'))
-df['Review'] = df['Review'].apply(lambda x: ' '.join([rijec for rijec in word_tokenize(x) if rijec not in zaustavne_rijeci]))
+df['Review'] = df['Review'].astype(str).apply(lambda x: ' '.join([rijec for rijec in word_tokenize(x) if rijec not in zaustavne_rijeci]))
 
 vektorizator = TfidfVectorizer()
 X = vektorizator.fit_transform(df['Review'])
@@ -43,7 +43,6 @@ X_resampled, y_resampled = ros.fit_resample(X, df['Rating'])
 
 # Podjela podataka na trening i test set
 X_trening, X_test, y_trening, y_test = train_test_split(X_resampled, y_resampled, test_size=0.2, random_state=42)
-
 
 # Definiranje parametara za pretragu
 parametri = {'alpha': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]}
@@ -67,6 +66,15 @@ model.fit(X_trening, y_trening)
 y_predikcija = model.predict(X_test)
 print('Točnost modela:', accuracy_score(y_test, y_predikcija))
 print('Matrica konfuzije:\n', confusion_matrix(y_test, y_predikcija))
+
+# Vizualizacija matrice konfuzije pomoću ConfusionMatrixDisplay
+cm = confusion_matrix(y_test, y_predikcija)
+cmd = ConfusionMatrixDisplay(cm, display_labels=[1,2,3,4,5])
+cmd.plot()
+plt.xlabel('Predviđena ocjena')
+plt.ylabel('Stvarna ocjena')
+plt.title('Matrica konfuzije')
+plt.show()
 
 # Unakrsna validacija
 ocjene = cross_val_score(model, X_resampled, y_resampled, cv=5)
