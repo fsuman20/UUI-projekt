@@ -11,7 +11,7 @@ Model je izrađen u Python programu koji koristi statističko strojno učenje i 
 Aplikacija za recenziranje je izrađena u Python programu koji omogućuje korisniku da unese novu recenziju restorana i dobije predviđenu ocjenu na temelju modela. Aplikacija također prikazuje grafički prikaz broja recenzija po ocjenama, te omogućuje korisniku da odabere između stvaranja nove recenzije i prikaza podataka.
 
 ## Upute za pokretanje
-Za pokretanje projekta potrebno je imati instaliran Python 3.8 ili noviji, te sljedeće biblioteke: pandas, pickle, matplotlib, seaborn, sklearn, nltk i imblearn. Također je potrebno preuzeti skup podataka `Restaurant reviews.csv` s repozitorija i spremiti ga u isti direktorij kao i Python programe.
+Za pokretanje projekta potrebno je imati instaliran Python (poželjno), te sljedeće biblioteke: pandas, pickle, matplotlib, seaborn, sklearn, nltk i imblearn. Poželjno je imati Conda okruženje sa svim uključenim bibliotekama. Također je potrebno preuzeti skup podataka `Restaurant reviews.csv` s repozitorija i spremiti ga u isti direktorij kao i Python programe.
 
 Za pokretanje modela, potrebno je pokrenuti program `model_review.py`. Program će učitati podatke, očistiti ih, vektorizirati ih, balansirati ih, podijeliti ih na trening i test set, optimizirati parametre modela, trenirati model, evaluirati model, vizualizirati podatke i spremiti model i vektorizator u datoteke.
 
